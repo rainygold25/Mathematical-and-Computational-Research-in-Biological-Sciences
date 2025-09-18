@@ -1,5 +1,3 @@
-Below is a top-tier README for your UChicago Summer Immersion genomics project, tailored for Github and designed to maximize recruiter interest at Tesla or other elite tech firms.
-
 ***
 
 # Personal Genomics & Early Disease Detection
