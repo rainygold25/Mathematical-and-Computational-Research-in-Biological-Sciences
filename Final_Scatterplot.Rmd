@@ -1,0 +1,82 @@
+---
+title: "Final_Scatterplot"
+output: html_document
+date: "2023-06-28"
+---
+library("readxl")
+sizevmut <- read_excel("sizevmut.xlsx")
+
+```{r}
+genome <- read.csv("whole_genome.csv")
+sorted_genome <- sort(table(genome[,1]), decreasing=T)
+```
+
+
+```{r}
+
+sizevmut <- read.csv("sizevmut.csv")
+muteVSsize <- 
+  plot(sizevmut$size, sizevmut$mutations, xlab = "Chromosome Size (Mb)", ylab = "Number of Mutations", main = "Chromosome Mutation vs Chromosome Size")
+
+muteVSsizeL <- lm(sizevmut$mutations ~ sizevmut$size, data = sizevmut)
+abline(muteVSsizeL, col="red")
+
+muteVSsize
+
+####################
+muteVSgene <- 
+  plot(sizevmut$gene, sizevmut$mutations, xlab = "Chromosome Gene Size (bps)", ylab = "Number of Mutations", main = "Chromosome Mutation vs Chromosome Gene Size")
+
+muteVSgeneL <- lm(sizevmut$mutations ~ sizevmut$gene, data = sizevmut)
+abline(muteVSgeneL, col="blue")
+
+muteVSgene
+
+#######################
+muteVSexon <- 
+  plot(sizevmut$exon, sizevmut$mutations, xlab = "Chromosome Exon Size (bps)", ylab = "Number of Mutations", main = "Chromosome Mutation vs Chromosome Exon Size")
+
+muteVSexonL <- lm(sizevmut$mutations ~ sizevmut$exon, data = sizevmut)
+abline(muteVSexonL, col="blue")
+
+muteVSexon
+
+######################
+muteVSintron <- 
+  plot(sizevmut$intron, sizevmut$mutations, xlab = "Chromosome Intron Size (bps)", ylab = "Number of Mutations", main = "Chromosome Mutation vs Chromosome Intron Size")
+
+muteVSintronL <- lm(sizevmut$mutations ~ sizevmut$intron, data = sizevmut)
+abline(muteVSintronL, col="blue")
+
+muteVSintron
+
+```
+
+
+
+
+```{r}
+ALL <- read.csv("whole_genome.csv")
+syn <- ALL[,9]
+
+table(ALL[,9])
+
+
+allsyno <- grep("synonymous", syn)
+nonsyno <- grep("nonsynonymous", syn)
+allframeshift <- grep("frameshift ", syn)
+nonframeshift <- grep ("nonframeshift", syn)
+loss <- grep("loss", syn)
+
+clean <- c((length(allsyno)-length(nonsyno)), length(nonsyno), (length(allframeshift)-length(nonframeshift)), length(nonframeshift), length(loss))
+pie(clean, labels = c("synonymous", "nonsynoymous", "frameshift", "non-frameshift", "start/stop loss"), cex = 0.3, main = "Types of Variants")
+
+barplot(sizevmut[,3], names.arg = sizevmut$chromsome, ylab = "Number of Mutations", xlab = "Chromosome Number", main = "Number of Mutations", cex.names=0.5)
+
+
+plot(table(syn), las=2, xlab = "", ylab="Occurances", main = "Occurances of every Exonic Variance", cex.lab = 1)
+table(syn)
+
+pie(table(syn), cex = 0.3)
+
+```
