@@ -38,9 +38,9 @@ Genomic medicine is reshaping human health, but actionable mutation discovery re
 
 | Metric                  | Value                         |
 |-------------------------|------------------------------|
-| Total Variants Found    | 215,729 [1]           |
-| High-Quality Variants   | 148,361 [1]           |
-| Exonic Mutations        | 13,418  [1]           |
+| Total Variants Found    | 215,729           |
+| High-Quality Variants   | 148,361           |
+| Exonic Mutations        | 13,418            |
 | Notable Finds           | Bardet-Biedl Syndrome, Heart Block, Immunodeficiency|
 
 - **Discovered a high-frequency novel mutation in the BBS2 gene, directly linked to Bardet-Biedl syndrome—a rare disorder affecting cilia structure, vision, and metabolic balance.**
